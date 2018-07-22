@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-init-method="init" default-destroy-method="destroy"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="person"
+		class="com.caveofprogramming.spring.test.test.Person"
+		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
+		factory-method="getInstance">
+		<constructor-arg value="7" name="id" type="int"></constructor-arg>
+		<constructor-arg value="Janek" name="name"
+			type="String"></constructor-arg>
+		<property name="taxId">
+			<value>21</value>
+		</property>
+		<property name="address" ref="address"></property>
+	</bean>
+	<bean id="person2"
+		class="com.caveofprogramming.spring.test.test.Person"
+		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
+		factory-method="createPerson" factory-bean="personfactory">
+		<constructor-arg value="100" name="id" type="int"></constructor-arg>
+		<constructor-arg value="JaMajka" name="name"
+			type="String"></constructor-arg>
+		<property name="taxId">
+			<value>10</value>
+		</property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+	<bean id="address"
+		class="com.caveofprogramming.spring.test.test.Address">
+		<constructor-arg name="street"
+			value="1 Ksieginice Wielkie" type="String">
+		</constructor-arg>
+		<constructor-arg type="String" name="postcode"
+			value="57-150"></constructor-arg>
+	</bean>
+	<bean id="address2"
+		class="com.caveofprogramming.spring.test.test.Address"
+		p:street="Wilków 4" p:postcode="55-100">
+
+	</bean>
+
+	<bean id="personfactory"
+		class="com.caveofprogramming.spring.test.test.PersonFactory">
+	</bean>
+	<bean id="basket"
+		class="com.caveofprogramming.spring.test.test.FruitBasket">
+		<constructor-arg value="Janka koszyk"></constructor-arg>
+		<constructor-arg>
+			<set>
+				<value>jabłko</value>
+				<value>banan</value>
+				<value>gruszka</value>
+				<value>winogron</value>
+				<value>banan</value>
+			</set>
+		</constructor-arg>
+	</bean>
+	<bean id="jungle"
+		class="com.caveofprogramming.spring.test.test.Jungle">
+		<property name="largest" ref="elephant"></property>
+		<property name="animals">
+			<list>
+				<ref bean="snake" />
+				<ref bean="lion" />
+				<ref bean="elephant" />
+			</list>
+		</property>
+	</bean>
+	<bean id="lion"
+		class="com.caveofprogramming.spring.test.test.Animal">
+		<property name="name" value="Lion King"></property>
+		<property name="type" value="lion"></property>
+	</bean>
+	<bean id="snake"
+		class="com.caveofprogramming.spring.test.test.Animal">
+		<property name="name" value="wąż"></property>
+		<property name="type" value="snake"></property>
+	</bean>
+	<bean id="elephant"
+		class="com.caveofprogramming.spring.test.test.Animal">
+		<property name="name" value="Biały KieL"></property>
+		<property name="type" value="elephant"></property>
+	</bean>
+</beans>
