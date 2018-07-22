@@ -63,12 +63,19 @@
 	</bean>
 	<bean id="jungle"
 		class="com.caveofprogramming.spring.test.test.Jungle">
-		<property name="largest" ref="elephant"></property>
+		<property name="largest">
+			<bean id="elephant"
+				class="com.caveofprogramming.spring.test.test.Animal">
+				<property name="name" value="Biały KieL"></property>
+				<property name="type" value="elephant"></property>
+			</bean>
+
+		</property>
 		<property name="animals">
 			<list>
 				<ref bean="snake" />
 				<ref bean="lion" />
-				<ref bean="elephant" />
+				
 			</list>
 		</property>
 	</bean>
@@ -82,9 +89,5 @@
 		<property name="name" value="wąż"></property>
 		<property name="type" value="snake"></property>
 	</bean>
-	<bean id="elephant"
-		class="com.caveofprogramming.spring.test.test.Animal">
-		<property name="name" value="Biały KieL"></property>
-		<property name="type" value="elephant"></property>
-	</bean>
+
 </beans>
