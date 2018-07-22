@@ -61,37 +61,23 @@
 			</set>
 		</constructor-arg>
 	</bean>
-	<bean id="jungle"
-		class="com.caveofprogramming.spring.test.test.Jungle">
-		<property name="largest">
-
-			<bean id="elephant"
+	<bean id="elephant"
 				class="com.caveofprogramming.spring.test.test.Animal">
 				<property name="name" value="Biały KieL"></property>
 				<property name="type" value="elephant"></property>
 			</bean>
-		</property>
-		<property name="animals">
-			<list>
-				<bean id="elephant"
-					class="com.caveofprogramming.spring.test.test.Animal">
-					<property name="name" value="Biały KieL"></property>
-					<property name="type" value="elephant"></property>
-				</bean>
-				<bean id="lion"
-					class="com.caveofprogramming.spring.test.test.Animal">
-					<property name="name" value="Lion King"></property>
-					<property name="type" value="lion"></property>
-				</bean>
-				<bean id="snake"
-					class="com.caveofprogramming.spring.test.test.Animal">
-					<property name="name" value="wąż"></property>
-					<property name="type" value="snake"></property>
-				</bean>
-
-			</list>
-		</property>
-		
+			<bean id="lion"
+				class="com.caveofprogramming.spring.test.test.Animal">
+				<property name="name" value="Lion King"></property>
+				<property name="type" value="lion"></property>
+			</bean>
+			<bean id="snake"
+				class="com.caveofprogramming.spring.test.test.Animal">
+				<property name="name" value="wąż"></property>
+				<property name="type" value="snake"></property>
+			</bean>
+			<bean id="jungle"
+				class="com.caveofprogramming.spring.test.test.Jungle">
 		<property name="foods">
 			<props>
 				<prop key="gorilla">banana</prop>
@@ -99,7 +85,14 @@
 				<prop key="snake">mouse</prop>
 			</props>
 		</property>
-	</bean>
+		<property name="animals">
+			<map>
+				<entry key="lion" value-ref="lion"></entry>
+				<entry key="elephant" value-ref="elephant"></entry>
+				<entry key="snake" value-ref="snake"></entry>
+			</map>
+		</property>
+			</bean>
 
 
 </beans>
