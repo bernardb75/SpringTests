@@ -91,6 +91,14 @@
 
 			</list>
 		</property>
+		
+		<property name="foods">
+			<props>
+				<prop key="gorilla">banana</prop>
+				<prop key="panda">bamboo</prop>
+				<prop key="snake">mouse</prop>
+			</props>
+		</property>
 	</bean>
 
 
