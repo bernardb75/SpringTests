@@ -1,13 +1,13 @@
 package com.caveofprogramming.spring.test.test;
 
 public class Logger {
-private ConsoleWriter consoleWriter;
-private FileWriter fileWriter;
+private LogWriter consoleWriter;
+private LogWriter fileWriter;
 
-public void setConsoleWriter(ConsoleWriter consoleWriter) {
+public void setConsoleWriter(LogWriter consoleWriter) {
 	this.consoleWriter = consoleWriter;
 }
-public void setFileWriter(FileWriter fileWriter) {
+public void setFileWriter(LogWriter fileWriter) {
 	this.fileWriter = fileWriter;
 }
 public void writeFile(String text) {

@@ -9,12 +9,12 @@
 	
 	<bean id="logger"
 		class="com.caveofprogramming.spring.test.test.Logger"
-		autowire="byType">
+		autowire="byName">
 	</bean>
-	<bean id="consolewriter"
+	<bean id="consoleWriter"
 		class="com.caveofprogramming.spring.test.test.ConsoleWriter">
 	</bean>
-	<bean id="filewriter"
+	<bean id="fileWriter"
 		class="com.caveofprogramming.spring.test.test.FileWriter">
 	</bean>
 </beans>
