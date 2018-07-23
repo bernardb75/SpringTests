@@ -9,11 +9,11 @@ public class AppT {
 		ApplicationContext context= new ClassPathXmlApplicationContext("com/caveofprogramming/spring/test/test/beans/beans.xml");
 		
 
-		FruitBasket basket=(FruitBasket)context.getBean("basket");
-		System.out.println(basket);
+		Logger logger=(Logger)context.getBean("logger");
 		
-		Jungle jungle =(Jungle)context.getBean("jungle");
-		System.out.println(jungle);
+		logger.writeConsole("Czesc tam..");
+		logger.writeFile("Czesc znowu.");
+		
 		((ClassPathXmlApplicationContext)context).close();
 	}
 
